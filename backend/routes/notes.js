@@ -22,8 +22,6 @@ router.get('/fetchallnotes', fetchuser, async (req, res) => {
 
 // ROUTE 2 : Adding a new note using : POST /api/notes/addnote ,  **require login
 router.post('/addnote', fetchuser, [
-    body('title', 'Enter a valid name').isLength({ min: 3 }),
-    body('description', 'Password must be atleast 5 characters').isLength({ min: 5 })
 
 ], async (req, res) => {
 
@@ -35,7 +33,7 @@ router.post('/addnote', fetchuser, [
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
-
+        
         const note = new Note({
             title, description, tag, user: req.user.id
         })
@@ -55,12 +53,10 @@ router.put('/updatenote/:id', fetchuser, async (req, res) => {
 
     try {
 
-
-
         //Create a new note object
         let newNote = {};
         if (title) { newNote.title = title };
-        if (description) { description.title = description };
+        if (description) { newNote.description = description };
         if (tag) { newNote.tag = tag };
 
 

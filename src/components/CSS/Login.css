@@ -1,0 +1,22 @@
+#password{
+    width: 500px;
+}
+#cpassword{
+    width: 500px;
+}
+#email{
+    width: 500px;
+}
+
+#name{
+    width:500px;
+}
+#loginbtn{
+    margin-top: 20px;
+    width: 300px;
+    font-weight: bold;
+}
+
+form{
+    flex-direction: column;
+}
