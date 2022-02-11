@@ -29,7 +29,7 @@ router.post('/createuser', [
     try {
         let user = await User.findOne({ email: req.body.email });
         if (user) {
-            return res.status(400).json({ success:false , error: "sorry a user with this email already exists" })
+            return res.status(400).json({ success , error: "sorry a user with this email already exists" })
         }
         const salt = await bcrypt.genSalt(10);
         const secPass = await bcrypt.hash(req.body.password, salt)
@@ -45,8 +45,9 @@ router.post('/createuser', [
             }
         }
         success = true;
+        const email = req.body.email
         const authToken = jwt.sign(data, JWT_SECRET);
-        res.json({success, authToken })
+        res.json({success, authToken, email })
     } catch (error) {
         console.log(error.message)
         res.status(500).json("Internal server error")
@@ -54,7 +55,7 @@ router.post('/createuser', [
 
 })
 
-// ROUTE 2 : Create a user using : POST /api/auth/login , doesn't require login
+// ROUTE 2 : Logging user using : POST /api/auth/login , doesn't require login
 router.post('/login', [
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'Password must be atleast 5 characters').exists()
@@ -89,7 +90,7 @@ try {
     }
     success = true;
     const authToken = jwt.sign(data, JWT_SECRET);
-    res.json({ success, authToken })
+    res.json({ success, authToken, email })
 
 
 } catch (error) {
