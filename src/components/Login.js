@@ -7,7 +7,7 @@ const Login = (props) => {
 
     const handleLogin = async (e)=>{
         e.preventDefault()
-        const response = await fetch("https://tohid-inotebook.herokuapp.com/api/auth/login", {
+        const response = await fetch("http://localhost:5000/api/auth/login", {
             method: 'POST',
             headers : {
                 'Content-Type': 'application/json',
@@ -41,12 +41,12 @@ const Login = (props) => {
             <form className='my-5 d-flex justify-content-center align-items-center' onSubmit={handleLogin} >
             <div className="form-group ">
                 <label htmlFor="exampleInputEmail1">Email address</label>
-                <input type="email" className="form-control my-2" id="email" onChange={onChange} value={credentials.email} name='email' aria-describedby="emailHelp" placeholder="Enter email"/>
+                <input type="email" className="form-control my-2" id="email" onChange={onChange} value={credentials.email} name='email' required minLength={5} aria-describedby="emailHelp" placeholder="Enter email"/>
                    
             </div>
             <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Password</label>
-                <input type="password" className="form-control my-2" id="password" value={credentials.password} name='password'onChange={onChange} placeholder="Password"/>
+                <input type="password" required minLength={5} className="form-control my-2" id="password" value={credentials.password} name='password'onChange={onChange} placeholder="Password"/>
             </div>
            
             <button type="submit" id='loginbtn' className="btn btn-primary ">Login</button>
