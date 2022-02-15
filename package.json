@@ -15,8 +15,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "build": "npm run build",
     "install-client": "npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
     "server": "nodemon backend/index.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
