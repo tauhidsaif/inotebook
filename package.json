@@ -19,8 +19,8 @@
   },
   "scripts": {
       
-    "install-client": "npm install",
-    "heroku-postbuild": "npm run server && npm run install-client && npm run build",
+    "install-client": "npm install && npm install nodemon",
+    "heroku-postbuild": " npm run install-client && npm run build && npm run server " ,
     "server" : "nodemon backend/index.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
