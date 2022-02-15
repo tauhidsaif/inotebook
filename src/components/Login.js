@@ -21,7 +21,8 @@ const Login = (props) => {
             localStorage.setItem('token', json.authToken);
             localStorage.setItem('email', json.email);
             Navigate('/', { replace: true })
-            props.showAlert("Logged in successfuly", 'success')
+            let email = localStorage.getItem('email')
+            props.showAlert(`${email} Logged in successfuly`, 'success')
 
 
         } else {
