@@ -18,13 +18,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "install-client": "npm install",
-    "heroku-postbuild": " npm run install-client && npm run build && npm run server",
-    "server": "node backend/index.js",
+    "build": "react-scripts build",
+    "heroku-postbuild": " NPM_CONFIG_PRODUCTION=false npm install && npm run build && npm run build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node backend/index.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "both": "concurrently \"npm run start\" \"nodemon backend/index.js\" "
