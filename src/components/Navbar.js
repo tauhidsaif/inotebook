@@ -33,7 +33,7 @@ const Navbar = () => {
                     {!localStorage.getItem('token')?<form  >
                     <Link className='btn btn-primary mx-1' to='/signup' role='btn' >Sign Up</Link>
                     <Link className='btn btn-primary mx-1' to='/login ' role='btn' >Login</Link>
-                    </form>: <button className='btn btn-primary mx-1 ' name='logout' onClick={handleLogout} role='btn' >Logut</button>}
+                    </form>: <button className='btn btn-primary mx-1 ' name='logout' onClick={handleLogout} role='btn' >Logout</button>}
                 </div>
             </div>
         </nav>
