@@ -21,7 +21,7 @@
   "scripts": {
     "install-client": "npm install && cd backend",
     "heroku-postbuild": " npm run install-client && npm run build && npm run server ",
-    "server": "cd backend && npm install nodemon && nodemon index.js",
+    "server": "nodemon backend/index.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
