@@ -18,10 +18,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-      
-    "install-client": "npm install && npm install nodemon",
-    "heroku-postbuild": " npm run install-client && npm run build && npm run server " ,
-    "server" : "nodemon backend/index.js",
+    "install-client": "npm install && cd backend",
+    "heroku-postbuild": " npm run install-client && npm run build && npm run server ",
+    "server": "cd backend && nodemon backend/index.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
@@ -50,5 +49,16 @@
   },
   "devDependencies": {
     "gh-pages": "^3.2.3"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tauhidsaif/inotebook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tauhidsaif/inotebook/issues"
   }
 }
