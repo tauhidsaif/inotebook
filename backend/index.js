@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const path = require("path");
 
-const port = process.env.PORT || 5000;
+const port =  5000;
 var cors = require('Cors')
 app.use(cors())
 app.use(express.json())
@@ -23,6 +23,6 @@ app.get("*", function (request, response) {
   response.sendFile(path.resolve(__dirname, '../build', "index.html"));
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Example app listening at http://localhost:${port}/`)
 })
