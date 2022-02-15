@@ -2,7 +2,6 @@ const connectToMongo = require('./db');
 const express = require('express')
 const app = express()
 const path = require("path");
-const dotnev = require("dotenv").config()
 
 
 const port =  5000;
@@ -18,13 +17,13 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/notes', require('./routes/notes'));
 
-// Step 1:
-app.use(express.static(path.resolve(__dirname, "../build")));
-// Step 2:
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, '../build', "index.html"));
-});
+// // Step 1:
+// app.use(express.static(path.resolve(__dirname, "../build")));
+// // Step 2:
+// app.get("*", function (request, response) {
+//   response.sendFile(path.resolve(__dirname, '../build', "index.html"));
+// });
 
-app.listen(process.env.PORT || port, () => {
+app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}/`)
 })
