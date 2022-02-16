@@ -20,7 +20,8 @@
   },
   "scripts": {
     "start": "node backend/server.js",
-    "heroku-postbuild": " NPM_CONFIG_PRODUCTION=false npm install &&  npm run mongoose && cors  && npm run build",
+    "heroku-postbuild": " NPM_CONFIG_PRODUCTION=false npm install &&  npm run mongoose && npm run cors && npm run nodemodules && npm run build",
+    "nodemodules" : "cd backend && npm install",
     "server" : "cd backend && npm install",
     "cors": "npm install cors",
     "mongoose":"cd backend && npm install mongoose",
