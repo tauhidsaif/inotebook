@@ -19,7 +19,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node backend/server.js",
+    "start": "npm install mongoose && node backend/server.js",
     "heroku-postbuild": " NPM_CONFIG_PRODUCTION=false npm install && npm run build",
     "server" : "cd backend && npm install",
     "build": "react-scripts build",
