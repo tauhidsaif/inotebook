@@ -1,14 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-const express = require('express')
 import './index.css';
-import cors from 'cors'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-const app = express()
 
 
-app.use(cors())
 
 ReactDOM.render(
   <React.StrictMode>
